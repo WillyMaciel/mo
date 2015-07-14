@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+	$character = new \App\Game\Character\Character('NightFox');
+
+    return view('welcome', compact('character'));
 });

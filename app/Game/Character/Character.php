@@ -19,7 +19,7 @@ class Character
 	//Actions OBJ
 	public $actions;
 
-    public function __construct()
+    public function __construct($name)
     {
     	$this->name = $name;
 

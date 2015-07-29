@@ -2,6 +2,8 @@
 
 return [
 
+    'name'  => 'Mystical Online',
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

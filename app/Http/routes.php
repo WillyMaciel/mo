@@ -11,6 +11,18 @@
 |
 */
 
+
+/*
+|--------------------------------------------------------------------------
+| Login, Registro e Resgate de Senha
+|--------------------------------------------------------------------------
+*/
+Route::controllers([
+	'auth'		=> 'Auth\AuthController',
+	'password' 	=> 'Auth\PasswordController',
+]);
+
+
 Route::get('/', function () {
 
 	$character = new \App\Game\Character\Character('NightFox');

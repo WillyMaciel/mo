@@ -44,6 +44,9 @@
         <!-- END PAGE CONTAINER -->
         @show 
 
+        @if(session('messagebox'))
+            {!!session('messagebox')!!}
+        @endif
         <!-- MESSAGE BOX-->
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">

@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use App\Auth\Traits\AuthenticatesAndRegistersUsers;
+use App\Alerts\MessageBox;
 
 class AuthController extends Controller
 {
@@ -66,5 +67,14 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function getTeste()
+    {
+        $alerta = new MessageBox;
+        $alerta = $alerta->danger('Sucesso!', array('Muito', 'Sucesso', 'Nessa', 'Vida'))->audio('fail')->make();
+
+        return redirect('auth/login')->with('messagebox', $alerta);
+
     }
 }

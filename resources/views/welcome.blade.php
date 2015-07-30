@@ -40,6 +40,12 @@
             <div class="content">
                 <div class="title">Laravel 5</div>
 
+                {{var_dump(session('teste'))}}
+
+                @if(session('messagebox'))
+                    {{session('messagebox')}}
+                @endif
+
                 {{var_dump($character)}}
 
             </div>

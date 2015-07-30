@@ -1,5 +1,5 @@
-$(document).ready(function(){        
-    
+$(document).ready(function(){    
+
     /* PROGGRESS START */
     $.mpb("show",{value: [0,50],speed: 5});        
     /* END PROGGRESS START */
@@ -124,6 +124,23 @@ $(document).ready(function(){
        return false;
     });    
     /* END MESSAGE BOX */
+
+    /* MESSAGE BOX AUTOMATICA WILLY */
+    var box_automatica = $(".message-box-automatica");
+
+    if(box_automatica.length > 0)
+    {
+        box_automatica.toggleClass("open");
+            
+        var sound = box_automatica.data("sound");
+        
+        if(sound === 'alert')
+            playAudio('alert');
+        
+        if(sound === 'fail')
+            playAudio('fail');
+    }
+    /* END MESSAGE BOX AUTOMATICA WILLY*/
     
     /* CONTENT FRAME */
     $(".content-frame-left-toggle").on("click",function(){

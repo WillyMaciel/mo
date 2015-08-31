@@ -39,6 +39,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        //return response()->view('angular');
         return parent::render($request, $e);
     }
 }

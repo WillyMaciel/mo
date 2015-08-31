@@ -20,12 +20,29 @@
 Route::controllers([
 	'auth'		=> 'Auth\AuthController',
 	'password' 	=> 'Auth\PasswordController',
+	'chat'		=> 'ChatController'
 ]);
+
+
+Route::group(['prefix' => 'api'], function () {
+    
+    
+});
 
 
 Route::get('/', function () {
 
-	$character = new \App\Game\Character\Character('NightFox');
+	return file_get_contents(public_path() . '\app\index.html');
 
-    return view('welcome', compact('character'));
+	// $character = new \App\Game\Character\Character('NightFox');
+
+ //    return view('welcome', compact('character'));
 });
+
+
+// Route::get('/', function () {
+
+// 	$character = new \App\Game\Character\Character('NightFox');
+
+//     return view('welcome', compact('character'));
+// });

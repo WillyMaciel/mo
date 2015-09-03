@@ -25,8 +25,24 @@ Route::controllers([
 
 
 Route::group(['prefix' => 'api'], function () {
-    
-    
+    Route::controller('teste', 'TesteController');
+
+    Route::get('auth', function()
+    {
+    	if(Auth::check())
+    	{
+    		return ['auth' => 'true'];
+    	}
+    	else
+    	{
+    		return ['auth' => 'false'];
+    	}
+    });
+
+    Route::get('session', function()
+    {
+    	return Session::all();
+    });  
 });
 
 

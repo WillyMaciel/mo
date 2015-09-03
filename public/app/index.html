@@ -2,7 +2,7 @@
 <html lang="en" data-ng-app="App">
     <head data-ng-controller="AppHeadController as head">        
         <!-- META SECTION -->
-        <title>{{head.head.title}}</title>            
+        <title data-ng-bind-template="{{head.head.title}}"> Meu App </title>            
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,7 +16,7 @@
     </head>
     <body>
         <!-- START PAGE CONTAINER -->
-        <div class="page-container" data-ng-controller="AppController">
+        <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
             <div class="page-sidebar">
@@ -36,7 +36,7 @@
             <!-- END PAGE SIDEBAR -->
             
             <!-- PAGE CONTENT -->
-            <div class="page-content">
+            <div class="page-content" data-ng-controller="AppController as AppCtrl">
                 
                 <!-- START X-NAVIGATION VERTICAL -->
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
@@ -72,10 +72,23 @@
                                 <div class="panel-body" data-ng-controller="AppHeadController as head">
                                     Panel body
                                     <input type="text" data-ng-model="head.head.title" />
-                                    {{head.head.title}}
+                                    {{head.head.title}} <button data-ng-click="AppCtrl.auth()">Autenticar</button>
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        Nome: <input type="text" data-ng-model="AppCtrl.user.name" /> <br />
+                        Cidade: <input type="text" data-ng-model="AppCtrl.user.cidade" />
+                        <button data-ng-click="AppCtrl.addUser()">Salvar</button>
+                    </div>
+
+                    <div class="row" data-ng-repeat="user in AppCtrl.users">
+                        <div class="row">
+                            {{user.name}}
+                            {{user.cidade}}
                         </div>
                     </div>
                 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="body-full-height">
+<html lang="en" class="body-full-height" ng-app>
     @include('common.head')
     <body>
         @section('body')
@@ -77,7 +77,8 @@
         <!-- START PLUGINS -->
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/plugins/angularjs/angular.min.js"></script>        
         <!-- END PLUGINS -->
 
         <!-- THIS PAGE PLUGINS -->

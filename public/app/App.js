@@ -1,9 +1,9 @@
 var app;
 
-app = angular.module('App', ['Novo']);
+app = angular.module('App', ['Novo', 'ui.router', 'Route', 'ngAnimate', 'ngAnimate-animate.css']);
 
 //Config do App
-app.config(function ($httpProvider) {
+app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 	//Altera o content type do header, para enviar dados no tipo request ao invés de json para o servidor
 	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 
@@ -14,6 +14,46 @@ app.config(function ($httpProvider) {
         }
         return $.param(data);
     }
+
+
+	// For any unmatched url, redirect to /state1
+	$urlRouterProvider.otherwise("/main");
+	//
+	// Now set up the states
+	$stateProvider
+	.state('main', {
+	  url: "/main",
+	  controller: 'Route.MainController',
+	  controllerAs: 'RouteCtrl'
+
+	})
+	.state('main.content', {
+	  url: "/content",
+	  templateUrl: "app/views/mainContent.html"
+	})
+	.state('teste', {
+	  url: "/teste",
+	  templateUrl: "app/views/teste1.html"
+	})
+	.state('login', {
+	  url: "/login",
+	  templateUrl: "app/views/login.html",
+	  controller: 'Route.LoginController',
+	  controllerAs: 'RouteCtrl'
+	})
+	.state('state2', {
+	  url: "/state2",
+	  templateUrl: "partials/state2.html"
+	})
+	.state('state2.list', {
+	  url: "/list",
+	  templateUrl: "partials/state2.list.html",
+	  controller: function($scope) {
+	    $scope.things = ["A", "Set", "Of", "Things"];
+	  }
+	});
+
+
 });
 
 app.run(['$http', function($http)
